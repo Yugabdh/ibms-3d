@@ -11,7 +11,8 @@ const footerLinks = {
     ["Dashboards", "/portfolio/dashboards"],
   ],
   "Get in touch": [
-    ["About / Contact", "/about"],
+    ["About", "/about"],
+    ["Contact", "/contact"],
     ["Project enquiry", "/contact"],
   ],
 };
@@ -19,7 +20,7 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer id="contact" className="bg-brand-dark px-5 text-[#e9f0ef] sm:px-8">
-      <div className="mx-auto flex min-h-[245px] max-w-[1380px] flex-col items-start justify-center gap-5 border-b border-[#1c3437] py-10 md:flex-row md:items-center md:justify-between md:gap-8">
+      <div className="mx-auto flex min-h-61.25 max-w-345 flex-col items-start justify-center gap-5 border-b border-[#1c3437] py-10 md:flex-row md:items-center md:justify-between md:gap-8">
         <div>
           <Eyebrow light>About / your next project</Eyebrow>
           <h2 className="mt-3 font-heading text-[clamp(2rem,4vw,3rem)] leading-[.98] tracking-[-.045em]">
@@ -35,10 +36,10 @@ export default function Footer() {
           Start a conversation
         </Button>
       </div>
-      <div className="mx-auto grid max-w-[1380px] grid-cols-2 gap-x-5 gap-y-7 py-8 md:grid-cols-[1.7fr_1fr_1fr] md:gap-16">
+      <div className="mx-auto grid max-w-345 grid-cols-2 gap-x-5 gap-y-7 py-8 md:grid-cols-[1.7fr_1fr_1fr] md:gap-16">
         <div className="col-span-2 md:col-span-1">
           <BrandMark light />
-          <p className="my-3 max-w-[340px] text-[10px] leading-relaxed text-[#94a9a8]">
+          <p className="my-3 max-w-85 text-[10px] leading-relaxed text-[#94a9a8]">
             A portfolio of building systems in 3D: architecture, infrastructure and operations made clear, connected and useful.
           </p>
           <a
@@ -64,7 +65,7 @@ export default function Footer() {
           </div>
         ))}
       </div>
-      <div className="mx-auto flex min-h-12 max-w-[1380px] items-center justify-between gap-4 border-t border-[#1c3437] text-[8px] text-[#69817f]">
+      <div className="mx-auto flex min-h-12 max-w-345 items-center justify-between gap-4 border-t border-[#1c3437] text-[8px] text-[#69817f]">
         <span>© 2026 IBMS3D. All rights reserved.</span>
         <span>Designed for buildings that work better.</span>
       </div>

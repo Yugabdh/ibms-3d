@@ -146,11 +146,11 @@ export const navigation = [
     })),
   },
   {
-    label: "About / Contact",
+    label: "About",
     href: "/about",
-    children: [
-      { label: "About IBMS3D", href: "/about" },
-      { label: "Contact", href: "/contact" },
-    ],
+  },
+  {
+    label: "Contact",
+    href: "/contact",
   },
 ];

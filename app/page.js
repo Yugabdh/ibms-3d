@@ -1,4 +1,5 @@
 import { Illustration } from "./components/illustrations";
+import HeroCarousel from "./components/hero-carousel";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { Button, Eyebrow, ExternalArrow } from "./components/buttons";
@@ -88,7 +89,7 @@ function ProductCard({ item }) {
         <Illustration variant={item.variant} className="aspect-[1.78]" />
       </div>
       <div className="p-4">
-        <h3 className="font-heading text-lg font-normal tracking-[-.025em]">{item.title}</h3>
+        <h3 className="font-heading text-lg font-normal tracking-tight">{item.title}</h3>
         <p className="mb-3 mt-2 text-[11px] leading-relaxed text-[#697b7d]">{item.description}</p>
         <a className="inline-flex items-center gap-1.5 text-[10px] font-medium text-brand-primary" href="#contact">
           {item.detail}
@@ -105,15 +106,15 @@ export default function Home() {
       <Navbar />
       <main id="home">
         <section className="overflow-hidden bg-brand-dark text-[#f5f8f7]">
-          <div className="mx-auto grid min-h-[500px] w-[calc(100%-2rem)] max-w-[1380px] items-center gap-10 py-12 sm:w-[calc(100%-4rem)] sm:py-16 lg:grid-cols-[.82fr_1.18fr] lg:gap-20 lg:py-[70px]">
+          <div className="mx-auto grid min-h-125 w-[calc(100%-2rem)] max-w-345 items-center gap-10 py-12 sm:w-[calc(100%-4rem)] sm:py-16 lg:grid-cols-[.82fr_1.18fr] lg:gap-20 lg:py-17.5">
             <div>
               <Eyebrow light>3D / building / systems</Eyebrow>
-              <h1 className="mb-4 mt-5 max-w-[540px] font-heading text-[clamp(2.65rem,5.3vw,4.75rem)] leading-[.99] tracking-[-.045em]">
+              <h1 className="mb-4 mt-5 max-w-135 font-heading text-[clamp(2.65rem,5.3vw,4.75rem)] leading-[.99] tracking-[-.045em]">
                 See the building.
                 <br />
                 Understand the systems.
               </h1>
-              <p className="max-w-[445px] text-xs leading-[1.7] text-[#b1c1c1] sm:text-[13px]">
+              <p className="max-w-111.25 text-xs leading-[1.7] text-[#b1c1c1] sm:text-[13px]">
                 Explore architecture, infrastructure and operations through precise 3D views. From a single panel to an entire campus.
               </p>
               <div className="mt-5 flex flex-wrap gap-2.5">
@@ -126,21 +127,9 @@ export default function Home() {
                 <span>VISUALISATION</span>
               </div>
             </div>
-            <div className="min-w-0 bg-[#f4f6f3] p-2.5 text-brand-dark shadow-[0_22px_70px_rgba(0,0,0,.2)]">
-              <div className="flex items-center justify-between gap-3 px-2 pb-2.5 pt-1.5 text-[8px] tracking-[.04em] text-[#627477]">
-                <span>3D / PLANT ROOM</span>
-                <span>MODEL VIEWER</span>
-              </div>
-              <Illustration variant="room" className="aspect-[1.68]" />
-              <div className="flex items-center justify-between gap-3 px-2 pb-1 pt-3 text-[9px] text-[#627477]">
-                <span>Battery & UPS Room</span>
-                <span className="inline-flex items-center">
-                  Interactive model <ExternalArrow className="ml-1 h-3.5 w-3.5 text-brand-primary" />
-                </span>
-              </div>
-            </div>
+            <HeroCarousel />
           </div>
-          <div className="mx-auto flex min-h-12 w-[calc(100%-2rem)] max-w-[1380px] items-center justify-between gap-4 border-t border-[#1e3538] text-[8px] tracking-[.09em] text-[#91a7a7] sm:w-[calc(100%-4rem)]">
+          <div className="mx-auto flex min-h-12 w-[calc(100%-2rem)] max-w-345 items-center justify-between gap-4 border-t border-[#1e3538] text-[8px] tracking-[.09em] text-[#91a7a7] sm:w-[calc(100%-4rem)]">
             <span>DETAIL / CONTEXT / CLARITY</span>
             <a href="#portfolio" className="inline-flex items-center gap-1.5 text-right">
               SCROLL TO EXPLORE <FiArrowDown aria-hidden="true" className="h-3.5 w-3.5 text-brand-accent" />
@@ -148,23 +137,23 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-[1380px] px-5 py-14 sm:px-8 sm:py-20 lg:py-24" id="portfolio">
-          <div className="mb-8 grid items-end gap-4 sm:grid-cols-[1fr_minmax(250px,.72fr)] sm:gap-12 lg:gap-[70px]">
+        <section className="mx-auto max-w-345 px-5 py-14 sm:px-8 sm:py-20 lg:py-24" id="portfolio">
+          <div className="mb-8 grid items-end gap-4 sm:grid-cols-[1fr_minmax(250px,.72fr)] sm:gap-12 lg:gap-17.5">
             <SectionTitle eyebrow="01 / The portfolio" title={<>Every scale.<br />One clear view.</>} />
-            <p className="mb-1 max-w-[435px] text-xs leading-[1.8] text-[#697b7d]">
+            <p className="mb-1 max-w-108.75 text-xs leading-[1.8] text-[#697b7d]">
               Seven collections trace a building from architecture to equipment to the data behind its operation. Choose a system to explore the detail.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5.5">
             {productCards.map((item) => <ProductCard item={item} key={item.id} />)}
-            <aside className="flex min-h-[220px] flex-col items-start justify-center bg-[#dff2ef] p-6 sm:col-span-2 sm:p-10 lg:p-14">
+            <aside className="flex min-h-55 flex-col items-start justify-center bg-[#dff2ef] p-6 sm:col-span-2 sm:p-10 lg:p-14">
               <Eyebrow>From detail to whole</Eyebrow>
               <h3 className="mb-2.5 mt-4 font-heading text-[clamp(1.75rem,3vw,2.45rem)] leading-none tracking-[-.04em]">
                 Complex infrastructure.
                 <br />
                 A simpler conversation.
               </h3>
-              <p className="max-w-[390px] text-xs leading-[1.7] text-[#5f7777]">
+              <p className="max-w-97.5 text-xs leading-[1.7] text-[#5f7777]">
                 Find the right visual language for your building automation project.
               </p>
               <Button href="#contact" className="mt-5">Show your brief</Button>
@@ -173,7 +162,7 @@ export default function Home() {
         </section>
 
         <section className="bg-brand-dark text-[#f4f8f7]" id="use-cases">
-          <div className="mx-auto grid min-h-[400px] w-[calc(100%-2rem)] max-w-[1380px] items-center gap-7 py-12 sm:w-[calc(100%-4rem)] sm:py-16 md:grid-cols-[1.1fr_.9fr] md:gap-16">
+          <div className="mx-auto grid min-h-100 w-[calc(100%-2rem)] max-w-345 items-center gap-7 py-12 sm:w-[calc(100%-4rem)] sm:py-16 md:grid-cols-[1.1fr_.9fr] md:gap-16">
             <Illustration variant="campus" className="aspect-[1.65]" />
             <div>
               <Eyebrow light>02 / Beyond the equipment</Eyebrow>
@@ -182,7 +171,7 @@ export default function Home() {
                 <br />
                 Not just the facade.
               </h2>
-              <p className="max-w-[430px] text-xs leading-[1.75] text-[#9eb0b0]">
+              <p className="max-w-107.5 text-xs leading-[1.75] text-[#9eb0b0]">
                 Day and night views reveal exteriors, interiors and the systems inside. Connect the model to the building, its use and the surrounding campus.
               </p>
               <div className="my-5 flex flex-wrap gap-4 text-[8px] tracking-[.08em] text-[#81a09e]">
@@ -193,7 +182,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-[1380px] px-5 py-14 sm:px-8 sm:py-20">
+        <section className="mx-auto max-w-345 px-5 py-14 sm:px-8 sm:py-20">
           <SectionTitle
             eyebrow="03 / Room-level detail"
             title={<>Room-scale clarity.<br />Panel-level precision.</>}
@@ -204,8 +193,8 @@ export default function Home() {
               <Illustration variant="electrical" className="aspect-[1.82]" />
               <div className="px-1 pt-4">
                 <Eyebrow>01 / Electrical</Eyebrow>
-                <h3 className="mt-2 font-heading text-xl tracking-[-.025em]">Electrical panel rooms</h3>
-                <p className="mb-3 mt-2 max-w-[480px] text-[11px] leading-relaxed text-[#697b7d]">
+                <h3 className="mt-2 font-heading text-xl tracking-tight">Electrical panel rooms</h3>
+                <p className="mb-3 mt-2 max-w-120 text-[11px] leading-relaxed text-[#697b7d]">
                   See panel bays, access space and overhead services together.
                 </p>
                 <a className="inline-flex items-center gap-1.5 text-[10px] font-medium text-brand-primary" href="#electrical">
@@ -217,8 +206,8 @@ export default function Home() {
               <Illustration variant="room" className="aspect-[1.82]" />
               <div className="px-1 pt-4">
                 <Eyebrow>02 / Power</Eyebrow>
-                <h3 className="mt-2 font-heading text-xl tracking-[-.025em]">Battery & UPS rooms</h3>
-                <p className="mb-3 mt-2 max-w-[480px] text-[11px] leading-relaxed text-[#697b7d]">
+                <h3 className="mt-2 font-heading text-xl tracking-tight">Battery & UPS rooms</h3>
+                <p className="mb-3 mt-2 max-w-120 text-[11px] leading-relaxed text-[#697b7d]">
                   Rack layouts, clearances and safety equipment in a coordinated room view.
                 </p>
                 <a className="inline-flex items-center gap-1.5 text-[10px] font-medium text-brand-primary" href="#battery-ups">
@@ -237,7 +226,7 @@ export default function Home() {
               <br />
               another layer of understanding.
             </h2>
-            <p className="max-w-[430px] text-xs leading-[1.75] text-[#6d8080]">
+            <p className="max-w-107.5 text-xs leading-[1.75] text-[#6d8080]">
               Start with a 3D floor plan. Add cabling and duct routes, isolate a zone, or trace the network in context. The same approach works across larger campuses too.
             </p>
             <Button href="#floorplans" className="mt-5">Explore service routing</Button>
@@ -249,7 +238,7 @@ export default function Home() {
         </section>
 
         <section className="bg-brand-dark px-5 py-14 text-[#f4f8f7] sm:px-8 sm:py-20 lg:px-[max(2rem,calc((100vw-1380px)/2))]" id="dashboards">
-          <div className="mx-auto grid max-w-[1380px] items-center gap-6 md:grid-cols-[.74fr_1.26fr] md:gap-16">
+          <div className="mx-auto grid max-w-345 items-center gap-6 md:grid-cols-[.74fr_1.26fr] md:gap-16">
             <div>
               <Eyebrow light>05 / The operational layer</Eyebrow>
               <h2 className="mb-4 mt-4 font-heading text-[clamp(2.2rem,4vw,3.2rem)] leading-none tracking-[-.045em]">
@@ -257,7 +246,7 @@ export default function Home() {
                 <br />
                 to signals.
               </h2>
-              <p className="max-w-[430px] text-xs leading-[1.75] text-[#a5b6b6]">
+              <p className="max-w-107.5 text-xs leading-[1.75] text-[#a5b6b6]">
                 Water loops, air quality and consumption. Energy demand by zone. Connect the systems behind the building to the information people need to make decisions.
               </p>
               <div className="mt-5 flex flex-wrap gap-2.5">
@@ -269,7 +258,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-[1380px] px-5 py-14 sm:px-8 sm:py-20">
+        <section className="mx-auto max-w-345 px-5 py-14 sm:px-8 sm:py-20">
           <SectionTitle
             eyebrow="06 / A clearer way to work"
             title="Start with what needs to be understood."
@@ -279,17 +268,17 @@ export default function Home() {
             {workflow.map(([number, title, description]) => (
               <article className="border-t border-[#dce5e3] py-4 sm:pr-5" key={number}>
                 <span className="mb-5 block text-[9px] tracking-[.08em] text-brand-primary">{number}</span>
-                <h3 className="font-heading text-[17px] font-normal tracking-[-.025em]">{title}</h3>
-                <p className="mt-2 max-w-[245px] text-[11px] leading-[1.7] text-[#697b7d]">{description}</p>
+                <h3 className="font-heading text-[17px] font-normal tracking-tight">{title}</h3>
+                <p className="mt-2 max-w-61.25 text-[11px] leading-[1.7] text-[#697b7d]">{description}</p>
               </article>
             ))}
           </div>
         </section>
 
         <section className="bg-[#f0f4f3] px-5 py-10 sm:px-8 sm:py-14">
-          <div className="mx-auto grid max-w-[1380px] items-center gap-5 md:grid-cols-2 md:gap-[75px]">
+          <div className="mx-auto grid max-w-345 items-center gap-5 md:grid-cols-2 md:gap-18.75">
             <div>
-              <div className="flex items-center gap-2 text-[23px] tracking-[-.05em] text-[#607477]">
+              <div className="flex items-center gap-2 text-[23px] tracking-tighter text-[#607477]">
                 <FiBox aria-hidden="true" className="h-7 w-7 text-brand-primary" />
                 <span>IBMS3D</span>
               </div>
@@ -300,7 +289,7 @@ export default function Home() {
               </h2>
             </div>
             <div>
-              <p className="mb-3.5 max-w-[520px] text-[11px] leading-[1.75] text-[#6e8081]">
+              <p className="mb-3.5 max-w-130 text-[11px] leading-[1.75] text-[#6e8081]">
                 IBMS3D presents the building automation visualisation of 3D ideas. The collection spans rooms, equipment, service routing, dashboards and the spaces that connect them.
               </p>
               <a className="mb-3.5 block font-heading text-lg tracking-[-.02em] text-brand-primary" href="#contact">
