@@ -46,7 +46,7 @@ export function Button({
 export function Eyebrow({ children, light = false, className = "" }) {
   return (
     <p
-      className={`m-0 text-[9px] font-semibold uppercase leading-relaxed tracking-[.1em] ${
+      className={`m-0 text-[9px] font-semibold uppercase leading-relaxed tracking-widest ${
         light ? "text-brand-accent" : "text-brand-primary"
       } ${className}`}
     >

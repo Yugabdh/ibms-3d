@@ -118,8 +118,8 @@ export default function Home() {
                 Explore architecture, infrastructure and operations through precise 3D views. From a single panel to an entire campus.
               </p>
               <div className="mt-5 flex flex-wrap gap-2.5">
-                <Button href="#portfolio">Explore the portfolio</Button>
-                <Button href="#contact" variant="outlineLight">Get in touch</Button>
+                <Button href="/portfolio">Explore the portfolio</Button>
+                <Button href="/contact" variant="outlineLight">Get in touch</Button>
               </div>
               <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-[8px] tracking-[.08em] text-[#90a7a6] lg:mt-14">
                 <span>3D MODEL</span>
@@ -130,7 +130,7 @@ export default function Home() {
             <HeroCarousel />
           </div>
           <div className="mx-auto flex min-h-12 w-[calc(100%-2rem)] max-w-345 items-center justify-between gap-4 border-t border-[#1e3538] text-[8px] tracking-[.09em] text-[#91a7a7] sm:w-[calc(100%-4rem)]">
-            <span>DETAIL / CONTEXT / CLARITY</span>
+            <span>EXPLORE OUR DESINGS</span>
             <a href="#portfolio" className="inline-flex items-center gap-1.5 text-right">
               SCROLL TO EXPLORE <FiArrowDown aria-hidden="true" className="h-3.5 w-3.5 text-brand-accent" />
             </a>
@@ -292,10 +292,10 @@ export default function Home() {
               <p className="mb-3.5 max-w-130 text-[11px] leading-[1.75] text-[#6e8081]">
                 IBMS3D presents the building automation visualisation of 3D ideas. The collection spans rooms, equipment, service routing, dashboards and the spaces that connect them.
               </p>
-              <a className="mb-3.5 block font-heading text-lg tracking-[-.02em] text-brand-primary" href="#contact">
+              <a className="mb-3.5 block font-heading text-lg tracking-[-.02em] text-brand-primary" href="/contact">
                 3D Ideas <FiArrowRight aria-hidden="true" className="mx-1 inline h-4 w-4" /> Your Intelligent Building Partner
               </a>
-              <Button href="#contact" variant="lightOutline" className="min-h-9">About / Contact</Button>
+              <Button href="/contact" variant="lightOutline" className="min-h-9">Contact</Button>
             </div>
           </div>
         </section>

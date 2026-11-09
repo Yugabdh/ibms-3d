@@ -32,7 +32,7 @@ export default function Footer() {
             Tell us the audience and the views you need. Start with a visual brief.
           </p>
         </div>
-        <Button href="mailto:hello@ibms3d.com" variant="accent">
+        <Button href="/contact" variant="accent">
           Start a conversation
         </Button>
       </div>
@@ -44,9 +44,9 @@ export default function Footer() {
           </p>
           <a
             className="inline-flex items-center gap-1.5 text-[10px] text-brand-accent transition-colors hover:text-white"
-            href="mailto:hello@ibms3d.com"
+            href="mailto:darshan@sdiotecs.com"
           >
-            hello@ibms3d.com
+            darshan@sdiotecs.com
             <ExternalArrow className="h-3.5 w-3.5" />
           </a>
         </div>
