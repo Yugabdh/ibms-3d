@@ -29,6 +29,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} h-full scroll-smooth antialiased`}
+      data-scroll-behavior="smooth"
     >
       <body className="min-h-full flex flex-col font-body">{children}</body>
     </html>

@@ -5,25 +5,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { ExternalArrow } from "./buttons";
+import { images } from "../config/images";
 
 const slides = [
   {
     label: "ROOM OVERVIEW",
     title: "Battery & UPS Room",
-    image: "/images/battery-room.png",
-    imageAlt: "Placeholder 3D view of a battery room and its equipment",
+    image: images.upsRoom,
   },
   {
     label: "AERIAL VIEW",
     title: "Aerial view of the building",
-    image: "/images/aerialview.jpg",
-    imageAlt: "Placeholder aerial view of the building",
+    image: images.buildingExterior,
   },
   {
     label: "ROOM ACCESS",
     title: "Layout, lighting and access",
-    image: "/images/battery-room.png",
-    imageAlt: "Placeholder 3D view of a battery room and its equipment",
+    image: images.batteryRoom,
   },
 ];
 
@@ -92,10 +90,10 @@ export default function HeroCarousel() {
         style={{ touchAction: "pan-y" }}
       >
         <Image
-          src={slide.image}
-          alt={slide.imageAlt}
+          src={slide.image.src}
+          alt={slide.image.alt}
           fill
-          priority
+          preload
           sizes="(max-width: 1024px) 100vw, 50vw"
           className="object-cover"
         />

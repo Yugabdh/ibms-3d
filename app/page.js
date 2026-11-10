@@ -4,6 +4,7 @@ import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { Button, Eyebrow, ExternalArrow } from "./components/buttons";
 import { FiArrowDown, FiArrowRight, FiBox } from "react-icons/fi";
+import { images } from "./config/images";
 
 const productCards = [
   {
@@ -47,6 +48,7 @@ const productCards = [
     description: "Day, night and maintenance views in their context.",
     detail: "Explore exteriors",
     variant: "campus",
+    image: images.buildingExterior,
   },
   {
     id: "dashboards",
@@ -86,7 +88,7 @@ function ProductCard({ item }) {
           <span>3D / MODEL VIEW</span>
           <ExternalArrow />
         </div>
-        <Illustration variant={item.variant} className="aspect-[1.78]" />
+        <Illustration variant={item.variant} image={item.image} className="aspect-[1.78]" />
       </div>
       <div className="p-4">
         <h3 className="font-heading text-lg font-normal tracking-tight">{item.title}</h3>

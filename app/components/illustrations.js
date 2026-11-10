@@ -1,11 +1,14 @@
 import Image from "next/image";
+import { variantImages } from "../config/images";
 
-export function Illustration({ className = "" }) {
+export function Illustration({ variant = "room", image, className = "" }) {
+  const { src, alt } = image ?? variantImages[variant] ?? variantImages.room;
+
   return (
     <div className={`relative aspect-[1.78] w-full overflow-hidden bg-[#dce2df] ${className}`}>
       <Image
-        src="/images/battery-room.png"
-        alt="Placeholder image of a battery room"
+        src={src}
+        alt={alt}
         fill
         sizes="(max-width: 680px) 100vw, (max-width: 1024px) 50vw, 40vw"
         className="object-cover"

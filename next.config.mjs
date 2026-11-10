@@ -5,6 +5,10 @@ const nextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   reactCompiler: true,
+  images: {
+    loader: "custom",
+    loaderFile: "./app/lib/cloudinary-loader.js",
+  },
   experimental: {
     agentUpgrade: "security",
   },
