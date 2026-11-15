@@ -176,6 +176,42 @@ export const images = {
     width: 1990,
     height: 1120,
   },
+  batteryRoom1: {
+    src: "v1794319945/battery_room_1.png",
+    alt: "3D view of a battery room with battery cabinets, racks and overhead services",
+    width: 6281,
+    height: 3857,
+  },
+  batteryRoom2: {
+    src: "v1794319945/battery_room_2.png",
+    alt: "3D view of a battery room with battery cabinets, racks and overhead services",
+    width: 6419,
+    height: 3949,
+  },
+  batteryRoom3: {
+    src: "v1794319945/battery_room_3.png",
+    alt: "3D view of a battery room with battery cabinets, racks and overhead services",
+    width: 8002,
+    height: 4502,
+  },
+  batteryRoom4: {
+    src: "v1794319945/battery_room_4.png",
+    alt: "3D view of a battery room with battery cabinets, racks and overhead services",
+    width: 8002,
+    height: 4502,
+  },
+  batteryRoom5: {
+    src: "v1794319945/battery_room_5.png",
+    alt: "3D view of a battery room with battery cabinets, racks and overhead services",
+    width: 1666,
+    height: 898,
+  },
+  batteryRoom6: {
+    src: "v1794319945/battery_room_6.png",
+    alt: "3D view of a battery room with battery cabinets, racks and overhead services",
+    width: 1666,
+    height: 898,
+  },
 };
 
 // Default image for each <Illustration variant="…" />.

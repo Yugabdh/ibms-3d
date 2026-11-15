@@ -74,6 +74,7 @@ export const projects = [
     description: "Battery racks and cabinets with clearances and safety equipment in view.",
     image: images.batteryRoom,
     tags: ["Racks", "Safety zones"],
+    gallery: [images.batteryRoom1, images.batteryRoom2, images.batteryRoom3, images.batteryRoom4, images.batteryRoom5, images.batteryRoom6],
   },
   {
     slug: "electrical-panel-room",
