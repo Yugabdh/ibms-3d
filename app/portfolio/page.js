@@ -1,8 +1,9 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import WorkGallery from "../components/work-gallery";
+import WorkGallery, { WorkGallerySkeleton } from "../components/work-gallery";
 import { Button, Eyebrow } from "../components/buttons";
 import { ImageSlot } from "../components/illustrations";
 import { container } from "../components/section";
@@ -16,7 +17,7 @@ export const metadata = {
   description: page.description,
 };
 
-export default function PortfolioPage() {
+export default function PortfolioPage({ searchParams }) {
   return (
     <>
       <Navbar />
@@ -71,7 +72,9 @@ export default function PortfolioPage() {
             </div>
           </section>
 
-          <WorkGallery />
+          <Suspense fallback={<WorkGallerySkeleton />}>
+            <WorkGallery searchParams={searchParams} />
+          </Suspense>
 
           <div className="flex flex-wrap items-center justify-between gap-6 rounded-2xl border border-line bg-white px-6 py-7 sm:px-8">
             <div className="flex flex-col gap-1.5">

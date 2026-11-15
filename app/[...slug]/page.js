@@ -7,12 +7,13 @@ import { Button, Eyebrow, ExternalArrow } from "../components/buttons";
 import { container } from "../components/section";
 import { destinationPages } from "../config/navigation";
 
-// These paths have their own route folders under app/.
+// These paths have their own route folders under app/ (portfolio/* is handled
+// by app/portfolio/[project], which redirects category slugs to the filter).
 const dedicatedRoutes = new Set(["portfolio", "contact"]);
 
 export function generateStaticParams() {
   return Object.keys(destinationPages)
-    .filter((path) => !dedicatedRoutes.has(path))
+    .filter((path) => !dedicatedRoutes.has(path) && !path.startsWith("portfolio/"))
     .map((path) => ({ slug: path.split("/") }));
 }
 

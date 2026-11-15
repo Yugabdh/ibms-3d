@@ -1,33 +1,21 @@
 const portfolioPages = [
   {
-    slug: "battery-ups",
-    title: "Battery & UPS Rooms",
-    description: "Room layouts, racks, cabinets and safety zones.",
-    variant: "room",
-  },
-  {
-    slug: "electrical",
-    title: "Electrical Panel Rooms",
-    description: "Switchboards and MCC rooms, down to each panel.",
-    variant: "electrical",
-  },
-  {
     slug: "floorplans",
-    title: "Floor Plans & Service Routing",
+    title: "3D Floor Plans",
     description: "3D floor plans with cabling and duct routes in view.",
     variant: "floorplan",
   },
   {
-    slug: "hvac",
-    title: "HVAC Equipment",
-    description: "AHUs, FCUs and VRF models with internal components.",
+    slug: "equipment-graphics",
+    title: "Equipment Graphics",
+    description: "Connected cooling systems and colour-coded water loops.",
     variant: "hvac",
   },
   {
-    slug: "chillers",
-    title: "Chiller Plants",
-    description: "Connected cooling systems and colour-coded water loops.",
-    variant: "hvac",
+    slug: "critical-rooms",
+    title: "Critical Rooms",
+    description: "Room layouts, racks, cabinets and safety zones.",
+    variant: "room",
   },
   {
     slug: "building-exteriors",
@@ -90,7 +78,7 @@ export const navigation = [
     href: "/portfolio",
     children: portfolioPages.map(({ slug, title }) => ({
       label: title,
-      href: `/portfolio/${slug}`,
+      href: `/portfolio?type=${slug}`,
     })),
   },
   {
