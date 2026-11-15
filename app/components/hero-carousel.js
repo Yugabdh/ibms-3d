@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { FiArrowRight, FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { blueprintGrid } from "./illustrations";
+import { blueprintGrid, Illustration } from "./illustrations";
 import { images } from "../config/images";
 
 // One slide per service on the home page. `input` → `output` fills the badge.
@@ -38,9 +37,10 @@ const slides = [
   },
 ];
 
-const fits = {
-  contain: "object-contain",
-  cover: "rounded-lg object-cover",
+// Extra classes on the Illustration box per fit (object-fit itself is set by Illustration).
+const slideBox = {
+  contain: "",
+  cover: "rounded-lg",
 };
 
 const AUTO_ADVANCE_MS = 5000;
@@ -143,13 +143,13 @@ export default function HeroCarousel() {
                 index === activeSlide ? "opacity-100" : "opacity-0"
               }`}
             >
-              <Image
-                src={item.image.src}
-                alt={item.image.alt}
-                fill
+              <Illustration
+                image={item.image}
+                fit={item.fit}
+                aspect="h-full"
                 preload={index === 0}
                 sizes="(max-width: 1024px) 100vw, 55vw"
-                className={fits[item.fit]}
+                className={slideBox[item.fit]}
               />
             </div>
           ))}
