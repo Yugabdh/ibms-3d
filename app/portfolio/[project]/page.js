@@ -4,6 +4,7 @@ import { FiArrowLeft } from "react-icons/fi";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
 import ProjectCard from "../../components/project-card";
+import ProjectGallery from "../../components/project-gallery";
 import { Button, Eyebrow } from "../../components/buttons";
 import { Illustration, ImageSlot } from "../../components/illustrations";
 import { TagList, container } from "../../components/section";
@@ -107,6 +108,20 @@ export default async function ProjectPage({ params }) {
               </div>
             </aside>
           </div>
+
+          {project.gallery?.length > 0 && (
+            <section className="flex flex-col gap-6" aria-labelledby="gallery-heading">
+              <div className="flex flex-wrap items-end justify-between gap-4">
+                <h2 id="gallery-heading" className="font-heading text-[clamp(1.5rem,2.6vw,1.875rem)] font-normal">
+                  Gallery
+                </h2>
+                <span className="font-mono text-xs text-ink-soft">
+                  {project.gallery.length} {project.gallery.length === 1 ? "image" : "images"}
+                </span>
+              </div>
+              <ProjectGallery images={project.gallery} title={project.title} />
+            </section>
+          )}
 
           <section className="flex flex-col gap-6" aria-labelledby="related-heading">
             <div className="flex flex-wrap items-end justify-between gap-4">

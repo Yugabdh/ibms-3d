@@ -15,6 +15,9 @@ export const categoryLabels = Object.fromEntries(workCategories.map(({ slug, lab
 
 // One entry per project; each gets a page at /portfolio/<slug>.
 // Projects without an image show a placeholder until one is added.
+// `gallery` (optional): images shown in the masonry grid + lightbox on the
+// project page. Give each image width/height in images.js so the grid can
+// reserve space before it loads.
 export const projects = [
   {
     slug: "office-level-4-floor-plan",
@@ -24,6 +27,7 @@ export const projects = [
     image: images.officeLevel4,
     fit: "contain",
     tags: ["From .dwg", "Zone-ready"],
+    gallery: [images.officeLevel4Plan1, images.officeLevel4Plan2, images.officeLevel4Plan3, images.officeLevel4Plan4, images.officeLevel4Plan5],
   },
   {
     slug: "floor-plan-service-routing",
@@ -33,6 +37,8 @@ export const projects = [
     image: images.floorPlan,
     fit: "contain",
     tags: ["Cable routes", "Duct routes"],
+    gallery: [images.floorPlan1, images.floorPlan2, images.floorPlan3, images.floorPlan4,],
+  
   },
   {
     slug: "air-handling-unit-cutaway",
@@ -47,8 +53,10 @@ export const projects = [
     category: "equipment-graphics",
     title: "Chiller plant",
     description: "Chillers, pumps and cooling towers on colour-coded chilled and condenser water loops.",
+    image: images.chillerPlant1,
     slot: "Chiller plant render coming soon",
     tags: ["Water loops", "Plant overview"],
+    gallery: [images.chillerPlant1, images.chillerPlant2, images.chillerPlant3],
   },
   {
     slug: "ups-room",
@@ -57,6 +65,7 @@ export const projects = [
     description: "UPS cabinet beside the line of electrical panels, with overhead services.",
     image: images.upsRoom,
     tags: ["Cabinets", "Overhead services"],
+    gallery: [images.upsRoom1, images.upsRoom2, images.upsRoom3, images.upsRoom4, images.upsRoom5, images.upsRoom6, images.upsRoom7],
   },
   {
     slug: "battery-room",
@@ -96,6 +105,7 @@ export const projects = [
     title: "Water management dashboard",
     description: "Storage, consumption and quality metrics on one operator screen.",
     image: images.dashboard,
+    gallery: [images.dashboard, images.dashboardEnergy, images.dashboardWater, images.dashboardFloors],
     tags: ["KPIs", "Trends"],
   },
 ];
