@@ -6,7 +6,7 @@ import { destinationPages } from "../config/navigation";
 
 const page = destinationPages.contact;
 
-const FORM_ACTION = "https://formsubmit.co/yugabdhppashte@gmail.com";
+const FORM_ACTION = "https://formsubmit.co/sales@ibms3d.com";
 
 export const metadata = {
   title: `Project enquiry | IBMS3D`,
