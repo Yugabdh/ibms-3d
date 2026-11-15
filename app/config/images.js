@@ -3,6 +3,12 @@
 // Resizing and format are handled by app/lib/cloudinary-loader.js.
 
 export const images = {
+  officeLevel4: {
+    src: "v1794318682/Approval_Sample_8.png",
+    alt: "3D floor plan of an office level rendered from AutoCAD drawings, showing workstations, meeting rooms and cores",
+    width: 1456,
+    height: 840,
+  },
   batteryRoom: {
     src: "v1794319945/Battery_room_3.jpg",
     alt: "3D view of a battery room with battery cabinets, racks and overhead services",

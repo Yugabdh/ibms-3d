@@ -43,36 +43,12 @@ const portfolioPages = [
   },
 ];
 
-const useCasePages = [
-  {
-    slug: "building-context",
-    title: "Building context",
-    description:
-      "Connect building architecture, its surrounding campus and the systems inside.",
-    variant: "campus",
-  },
-  {
-    slug: "service-routing",
-    title: "Service routing",
-    description:
-      "Trace cabling and duct routes through clear, coordinated 3D floor plans.",
-    variant: "floorplan",
-  },
-  {
-    slug: "building-operations",
-    title: "Building operations",
-    description:
-      "Bring energy use, system performance and operational metrics into view.",
-    variant: "dashboard",
-  },
-];
-
 export const destinationPages = {
   portfolio: {
-    title: "A portfolio at every scale",
-    eyebrow: "01 / The portfolio",
+    title: "Graphics we've delivered for BMS front ends.",
+    eyebrow: "Work",
     description:
-      "Explore building systems from architecture and infrastructure to the information behind everyday operations.",
+      "Client names withheld — our integrator partners own the relationship. Ask us for a private walkthrough of full sets.",
     variant: "campus",
     related: portfolioPages.map(({ slug }) => `portfolio/${slug}`),
   },
@@ -89,39 +65,19 @@ export const destinationPages = {
       },
     ]),
   ),
-  "use-cases": {
-    title: "See the building in context",
-    eyebrow: "02 / Use cases",
-    description:
-      "Connect the spaces, systems and operational information that make a building work.",
-    variant: "campus",
-    related: useCasePages.map(({ slug }) => `use-cases/${slug}`),
-  },
-  ...Object.fromEntries(
-    useCasePages.map((page) => [
-      `use-cases/${page.slug}`,
-      {
-        ...page,
-        eyebrow: "Use cases",
-        related: ["use-cases", ...useCasePages
-          .filter((otherPage) => otherPage.slug !== page.slug)
-          .map((otherPage) => `use-cases/${otherPage.slug}`)],
-      },
-    ]),
-  ),
   about: {
-    title: "Technical detail. Human understanding.",
+    title: "Drawn by people who commission BMS.",
     eyebrow: "About IBMS3D",
     description:
-      "IBMS3D makes building automation and infrastructure easier to understand through connected 3D visualisation.",
+      "IBMS3D is the 3D studio of SD IoTecs LLP, a building automation integrator in Pune, India, and an authorised Tridium Niagara, LOYTEC and EasyIO partner.",
     variant: "campus",
     related: ["contact", "portfolio"],
   },
   contact: {
-    title: "Make your building easier to understand.",
-    eyebrow: "About / your next project",
+    title: "Tell us about the project. We'll come back with scope and price.",
+    eyebrow: "Project enquiry",
     description:
-      "Tell us the audience and the views you need. Start a conversation about your building visualisation brief.",
+      "Send your drawings and project details. We reply with questions or a written scope: views, level of detail, layer naming, price and date.",
     variant: "room",
     related: ["portfolio", "use-cases"],
   },
@@ -135,14 +91,6 @@ export const navigation = [
     children: portfolioPages.map(({ slug, title }) => ({
       label: title,
       href: `/portfolio/${slug}`,
-    })),
-  },
-  {
-    label: "Use cases",
-    href: "/use-cases",
-    children: useCasePages.map(({ slug, title }) => ({
-      label: title,
-      href: `/use-cases/${slug}`,
     })),
   },
   {

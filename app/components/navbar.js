@@ -8,6 +8,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { FaPlus } from "react-icons/fa";
 
 import { BrandMark, Button } from "./buttons";
+import { container } from "./section";
 import { navigation } from "../config/navigation";
 
 export default function Navbar() {
@@ -21,12 +22,12 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-[#e8eeec] bg-white">
+      <header className="sticky top-0 z-40 border-b border-line-dark bg-brand-dark">
         <nav
           aria-label="Main navigation"
-          className="mx-auto flex h-17 w-[calc(100%-2rem)] max-w-345 items-center justify-between gap-6"
+          className={`${container} flex h-17 items-center justify-between gap-6  font-normal`}
         >
-          <BrandMark />
+          <BrandMark light />
 
           {/* Desktop navigation */}
           <div className="ml-auto hidden items-center gap-8 md:flex">
@@ -35,7 +36,7 @@ export default function Navbar() {
                 <Link
                   href={href}
                   aria-haspopup={children?.length ? "true" : undefined}
-                  className="inline-flex h-full items-center gap-1 text-xs text-[#526568] transition-colors hover:text-brand-primary focus-visible:text-brand-primary focus-visible:outline-none"
+                  className="inline-flex h-full items-center gap-1 text-sm text-[#c9d6d5] transition-colors hover:text-white focus-visible:text-white focus-visible:outline-none"
                 >
                   {label}
                   {children?.length > 0 && (
@@ -44,12 +45,12 @@ export default function Navbar() {
                 </Link>
 
                 {children?.length > 0 && (
-                  <div className="invisible absolute left-0 top-full z-50 min-w-56 translate-y-1 border border-[#e8eeec] bg-white p-2 opacity-0 shadow-[0_12px_30px_rgba(16,37,40,.12)] transition duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                  <div className="invisible absolute left-0 top-full z-50 min-w-56 translate-y-1 rounded-lg border border-line-dark bg-brand-dark p-2 opacity-0 shadow-[0_12px_30px_rgba(0,0,0,.35)] transition duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
                     {children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block whitespace-nowrap px-3 py-2.5 text-xs text-[#526568] transition-colors hover:bg-brand-light hover:text-brand-primary focus-visible:bg-brand-light focus-visible:text-brand-primary focus-visible:outline-none"
+                        className="block whitespace-nowrap rounded-md px-3 py-2.5 text-xs text-[#c9d6d5] transition-colors hover:bg-[#173a3e] hover:text-white focus-visible:bg-[#173a3e] focus-visible:text-white focus-visible:outline-none"
                       >
                         {child.label}
                       </Link>
@@ -65,8 +66,7 @@ export default function Navbar() {
             <Button
               href="/contact"
               variant="header"
-              arrow={false}
-              className="min-h-9.5 px-4 text-[11px]"
+              size="md"
             >
               Discuss a project
             </Button>
@@ -80,7 +80,7 @@ export default function Navbar() {
               aria-label="Open main menu"
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
-              className="-m-2.5 inline-flex min-h-11 min-w-11 touch-manipulation items-center justify-center rounded-md p-2.5 text-[#42575a]"
+              className="-m-2.5 inline-flex min-h-11 min-w-11 touch-manipulation items-center justify-center rounded-md p-2.5 text-[#c9d6d5] hover:text-white"
             >
               <FiMenu aria-hidden="true" className="h-6 w-6" />
             </button>
@@ -102,19 +102,19 @@ export default function Navbar() {
 
         <DialogPanel
           id="mobile-navigation"
-          className="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col overflow-y-auto bg-white px-5 py-5 shadow-xl ring-1 ring-brand-dark/10"
+          className="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col overflow-y-auto bg-brand-dark px-5 py-5 shadow-xl ring-1 ring-line-dark"
         >
           {/* Drawer header */}
-          <div className="flex items-center justify-between border-b border-[#e8eeec] pb-4">
+          <div className="flex items-center justify-between border-b border-line-dark pb-4">
             <DialogTitle as="div">
-              <BrandMark />
+              <BrandMark light />
             </DialogTitle>
 
             <button
               type="button"
               onClick={closeMobileMenu}
               aria-label="Close main menu"
-              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md p-2.5 text-[#42575a]"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md p-2.5 text-[#c9d6d5] hover:text-white"
             >
               <FiX aria-hidden="true" className="h-6 w-6" />
             </button>
@@ -129,12 +129,12 @@ export default function Navbar() {
               const isExpanded = expandedMobileItem === label;
 
               return (
-                <div className="border-b border-[#e8eeec]" key={label}>
+                <div className="border-b border-line-dark" key={label}>
                   <div className="flex min-h-12 items-center justify-between gap-3">
                     <Link
                       href={href}
                       onClick={closeMobileMenu}
-                      className="flex min-h-12 flex-1 items-center px-1 text-sm text-brand-dark transition-colors hover:text-brand-primary"
+                      className="flex min-h-12 flex-1 items-center px-1 text-sm text-[#f5f8f7] transition-colors hover:text-brand-accent"
                     >
                       {label}
                     </Link>
@@ -149,7 +149,7 @@ export default function Navbar() {
                             isExpanded ? null : label
                           )
                         }
-                        className="mr-1 inline-flex min-h-11 min-w-11 touch-manipulation items-center justify-center text-brand-primary"
+                        className="mr-1 inline-flex min-h-11 min-w-11 touch-manipulation items-center justify-center text-brand-accent"
                       >
                         <span
                           aria-hidden="true"
@@ -168,7 +168,7 @@ export default function Navbar() {
                           key={child.href}
                           href={child.href}
                           onClick={closeMobileMenu}
-                          className="py-3 text-xs text-[#526568] transition-colors hover:text-brand-primary"
+                          className="py-3 text-xs text-mist transition-colors hover:text-white"
                         >
                           {child.label}
                         </Link>
@@ -182,7 +182,9 @@ export default function Navbar() {
             {/* Mobile CTA appears inside the drawer only */}
             <Button
               href="/contact"
-              className="mt-4 w-full justify-between"
+              size="md"
+              fullWidth
+              className="mt-4"
               onClick={closeMobileMenu}
             >
               Discuss a project

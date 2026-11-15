@@ -1,73 +1,56 @@
-import { BrandMark, Button, Eyebrow, ExternalArrow } from "./buttons";
+import { BrandMark } from "./buttons";
+import { container } from "./section";
 
 const footerLinks = {
-  Explore: [
-    ["Battery & UPS Rooms", "/portfolio/battery-ups"],
-    ["Electrical Panel Rooms", "/portfolio/electrical"],
-    ["Floor Plans & Service Routing", "/portfolio/floorplans"],
-    ["HVAC Equipment", "/portfolio/hvac"],
-    ["Chiller Plants", "/portfolio/chillers"],
-    ["Building Exteriors", "/portfolio/building-exteriors"],
-    ["Dashboards", "/portfolio/dashboards"],
+  Services: [
+    ["3D Floor Plans", "/#services"],
+    ["Equipment Graphics", "/#services"],
+    ["Critical Rooms", "/#services"],
+    ["Buildings & Campus", "/#services"],
+    ["Full graphics package", "/#services"],
   ],
-  "Get in touch": [
-    ["About", "/about"],
+  Platform: [
+    ["IBMS3D Platform", "/#platform"],
+    ["Book a demo", "/contact"],
+  ],
+  Company: [
+    ["Work", "/portfolio"],
+    ["How we work", "/#process"],
+    ["About", "/#about"],
     ["Contact", "/contact"],
-    ["Project enquiry", "/contact"],
   ],
 };
 
+const linkClasses = "text-mist transition-colors hover:text-white";
+
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-brand-dark px-5 text-[#e9f0ef] sm:px-8">
-      <div className="mx-auto flex min-h-61.25 max-w-345 flex-col items-start justify-center gap-5 border-b border-[#1c3437] py-10 md:flex-row md:items-center md:justify-between md:gap-8">
-        <div>
-          <Eyebrow light>About / your next project</Eyebrow>
-          <h2 className="mt-3 font-heading text-[clamp(2rem,4vw,3rem)] leading-[.98] tracking-[-.045em]">
-            Make your building
-            <br />
-            easier to understand.
-          </h2>
-          <p className="mt-2 text-[11px] text-[#9fb2b2]">
-            Tell us the audience and the views you need. Start with a visual brief.
-          </p>
+    <footer className="bg-brand-dark text-mist">
+      <div className={`${container} flex flex-col gap-10 pb-8 pt-14`}>
+        <div className="grid gap-8 text-sm sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-col items-start gap-3">
+            <BrandMark light />
+            <p className="leading-relaxed">
+              3D graphics and live 3D front ends for building management systems. A studio of SD IoTecs LLP.
+            </p>
+          </div>
+          {Object.entries(footerLinks).map(([title, links]) => (
+            <div className="flex flex-col items-start gap-2.5" key={title}>
+              <span className="text-xs uppercase tracking-[.12em] text-[#f5f8f7]">{title}</span>
+              {links.map(([label, href]) => (
+                <a className={linkClasses} href={href} key={label}>
+                  {label}
+                </a>
+              ))}
+            </div>
+          ))}
         </div>
-        <Button href="/contact" variant="accent">
-          Start a conversation
-        </Button>
-      </div>
-      <div className="mx-auto grid max-w-345 grid-cols-2 gap-x-5 gap-y-7 py-8 md:grid-cols-[1.7fr_1fr_1fr] md:gap-16">
-        <div className="col-span-2 md:col-span-1">
-          <BrandMark light />
-          <p className="my-3 max-w-85 text-[10px] leading-relaxed text-[#94a9a8]">
-            A portfolio of building systems in 3D: architecture, infrastructure and operations made clear, connected and useful.
-          </p>
-          <a
-            className="inline-flex items-center gap-1.5 text-[10px] text-brand-accent transition-colors hover:text-white"
-            href="mailto:darshan@sdiotecs.com"
-          >
-            darshan@sdiotecs.com
-            <ExternalArrow className="h-3.5 w-3.5" />
+        <div className="flex flex-wrap justify-between gap-3 border-t border-line-dark pt-6 text-[13px]">
+          <span>© 2026 IBMS3D · SD IoTecs LLP, Pune, India</span>
+          <a className={linkClasses} href="mailto:sales@ibms3d.com">
+            sales@ibms3d.com
           </a>
         </div>
-        {Object.entries(footerLinks).map(([title, links]) => (
-          <div className="flex flex-col items-start gap-2.5" key={title}>
-            <Eyebrow light className="mb-1">{title}</Eyebrow>
-            {links.map(([label, href]) => (
-              <a
-                className="text-[10px] text-[#b4c2c1] transition-colors hover:text-brand-accent"
-                href={href}
-                key={label}
-              >
-                {label}
-              </a>
-            ))}
-          </div>
-        ))}
-      </div>
-      <div className="mx-auto flex min-h-12 max-w-345 items-center justify-between gap-4 border-t border-[#1c3437] text-[8px] text-[#69817f]">
-        <span>© 2026 IBMS3D. All rights reserved.</span>
-        <span>Designed for buildings that work better.</span>
       </div>
     </footer>
   );

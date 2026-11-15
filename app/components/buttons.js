@@ -1,26 +1,46 @@
 import { FiArrowRight, FiArrowUpRight, FiBox } from "react-icons/fi";
 import Link from "next/link";
 
+// Each CSS property is set by exactly one of base / size / variant. Tailwind
+// resolves duplicate utilities by stylesheet order, not class-string order, so
+// a property set in two places (or again via `className`) may not apply.
+// Keep `className` for spacing and positioning only (margins, self-*, etc.).
+
+// Colours only: background, text and border colour (border width is in base).
 const variants = {
-  primary: "bg-brand-primary text-white hover:bg-[#056b70]",
-  outlineLight: "border border-[#456265] bg-transparent text-white hover:border-brand-accent hover:bg-white/5",
-  accent: "bg-brand-accent text-brand-dark hover:bg-[#8aeeea]",
-  header: "bg-brand-primary text-white hover:bg-[#056b70]",
-  lightOutline: "border border-[#d3e1df] bg-transparent text-brand-dark hover:border-brand-primary",
+  primary: "border-transparent bg-brand-primary text-white hover:bg-[#056b70]",
+  header: "border-transparent bg-brand-primary text-white hover:bg-[#056b70]",
+  accent: "border-transparent bg-brand-accent text-brand-dark hover:bg-[#8aeeea]",
+  white: "border-transparent bg-white text-brand-dark hover:bg-brand-light",
+  outlineLight: "border-[#456265] bg-transparent text-white hover:border-brand-accent hover:bg-white/5",
+  ghostDark: "border-[#36504f] bg-transparent text-[#f5f8f7] hover:border-brand-accent hover:text-white",
+  lightOutline: "border-[#d3e1df] bg-transparent text-brand-dark hover:border-brand-primary",
+  outlineWhite: "border-white/55 bg-transparent text-white hover:border-white hover:bg-white/10",
+};
+
+// Dimensions only: height, padding, gap, radius and font size.
+const sizes = {
+  sm: "min-h-10 gap-3 rounded-sm px-3.5 py-2 text-xs",
+  md: "min-h-11 gap-2 rounded-lg px-5 py-2 text-sm",
+  lg: "min-h-12 gap-2 rounded-lg px-6 py-2 text-[15px]",
+  xl: "min-h-13 gap-2 rounded-lg px-7 py-2 text-base",
 };
 
 const baseButtonClasses =
-  "inline-flex min-h-10 items-center justify-center gap-3 rounded-sm border border-transparent px-3.5 py-2 text-left text-xs font-medium leading-tight transition hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary";
+  "inline-flex items-center border text-left font-medium leading-tight transition hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary";
 
 export function Button({
   children,
   href,
   variant = "primary",
+  size = "sm",
   arrow = true,
+  fullWidth = false,
   className = "",
   ...props
 }) {
-  const classes = `${baseButtonClasses} ${variants[variant] ?? variants.primary} ${className}`;
+  const width = fullWidth ? "w-full justify-between" : "justify-center";
+  const classes = `${baseButtonClasses} ${width} ${sizes[size] ?? sizes.sm} ${variants[variant] ?? variants.primary} ${className}`;
   const content = (
     <>
       <span>{children}</span>
@@ -46,7 +66,7 @@ export function Button({
 export function Eyebrow({ children, light = false, className = "" }) {
   return (
     <p
-      className={`m-0 text-[9px] font-semibold uppercase leading-relaxed tracking-widest ${
+      className={`m-0 text-xs font-medium uppercase leading-normal tracking-[.14em] ${
         light ? "text-brand-accent" : "text-brand-primary"
       } ${className}`}
     >
@@ -55,11 +75,19 @@ export function Eyebrow({ children, light = false, className = "" }) {
   );
 }
 
+export function NewBadge() {
+  return (
+    <span className="rounded-sm bg-brand-accent px-1.5 py-0.5 text-[10px] font-semibold tracking-[.08em] text-brand-dark">
+      NEW
+    </span>
+  );
+}
+
 export function BrandMark({ light = false, className = "" }) {
   return (
     <Link
-      className={`inline-flex items-center gap-2 whitespace-nowrap text-base font-medium tracking-[-.04em] ${
-        light ? "text-[#c9d5d4]" : "text-[#42575a]"
+      className={`inline-flex items-center gap-2.5 whitespace-nowrap font-heading text-xl font-medium tracking-[.02em] ${
+        light ? "text-[#f5f8f7]" : "text-brand-dark"
       } ${className}`}
       href="/"
       aria-label="IBMS3D home"

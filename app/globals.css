@@ -6,9 +6,22 @@
   --color-brand-accent: #6ce3de;
   --color-brand-light: #f2f5f4;
   --color-brand-muted: #ced9d8;
+
+  /* Surfaces, lines and text shades from the IBMS3D redesign */
+  --color-surface: #f4f7f6;
+  --color-line: #dce4e3;
+  --color-line-dark: #1e3337;
+  --color-field: #c8d3d2;
+  --color-tint: #e1f1f0;
+  --color-chip: #eef3f2;
+  --color-chip-text: #2e4346;
+  --color-ink-soft: #4a5d60;
+  --color-mist: #9fb3b2;
+  --color-mist-light: #b7c7c6;
 }
 
 @theme inline {
   --font-heading: var(--font-space-grotesk), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }

@@ -1,4 +1,4 @@
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -13,10 +13,16 @@ const inter = Inter({
   display: "swap",
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata = {
-  title: "IBMS3D | See the building. Understand the systems.",
+  title: "IBMS3D | 3D BMS graphics for system integrators and OEMs",
   description:
-    "Explore building architecture, infrastructure and operations through precise 3D visualisations.",
+    "Send us your AutoCAD drawings. We return 3D floor plans, equipment and critical-room graphics, layered, named to your points list and ready to bind in your BMS.",
 };
 
 export const viewport = {
@@ -28,7 +34,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} h-full scroll-smooth antialiased`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full scroll-smooth antialiased`}
       data-scroll-behavior="smooth"
     >
       <body className="min-h-full flex flex-col font-body">{children}</body>
