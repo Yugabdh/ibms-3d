@@ -11,6 +11,11 @@ import { destinationPages } from "../config/navigation";
 // by app/portfolio/[project], which redirects category slugs to the filter).
 const dedicatedRoutes = new Set(["portfolio", "contact"]);
 
+// Opt out of Next's dev-only instant-navigation validation. This route calls
+// notFound() for every unknown path, and the validator reports that expected
+// 404 as "an error prevented the target segment from rendering".
+export const instant = false;
+
 export function generateStaticParams() {
   return Object.keys(destinationPages)
     .filter((path) => !dedicatedRoutes.has(path) && !path.startsWith("portfolio/"))

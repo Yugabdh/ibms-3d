@@ -82,6 +82,10 @@ export const navigation = [
     })),
   },
   {
+    label: "Platform",
+    href: "/#platform",
+  },
+  {
     label: "About",
     href: "/about",
   },
