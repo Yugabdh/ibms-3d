@@ -5,6 +5,7 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import { Button, Eyebrow, ExternalArrow } from "../components/buttons";
 import { container } from "../components/section";
+import { AboutStudio, WhoWeWorkWith } from "../components/about-sections";
 import { destinationPages } from "../config/navigation";
 
 // These paths have their own route folders under app/ (portfolio/* is handled
@@ -15,6 +16,16 @@ const dedicatedRoutes = new Set(["portfolio", "contact"]);
 // notFound() for every unknown path, and the validator reports that expected
 // 404 as "an error prevented the target segment from rendering".
 export const instant = false;
+
+// Extra sections rendered between the hero and "Explore more", keyed by path.
+const pageSections = {
+  about: (
+    <>
+      <AboutStudio eyebrow="01 / Why IBMS3D" />
+      <WhoWeWorkWith eyebrow="02 / Who we work with" className="border-t border-line" />
+    </>
+  ),
+};
 
 export function generateStaticParams() {
   return Object.keys(destinationPages)
@@ -33,7 +44,8 @@ export async function generateMetadata({ params }) {
 
 export default async function DestinationPage({ params }) {
   const { slug } = await params;
-  const page = destinationPages[slug.join("/")];
+  const path = slug.join("/");
+  const page = destinationPages[path];
 
   if (!page) {
     notFound();
@@ -68,6 +80,8 @@ export default async function DestinationPage({ params }) {
             />
           </div>
         </section>
+
+        {pageSections[path]}
 
         <section className="bg-surface">
           <div className={`${container} flex flex-col gap-10 py-20 sm:py-24`}>

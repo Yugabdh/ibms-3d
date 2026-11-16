@@ -54,10 +54,12 @@ export const destinationPages = {
     ]),
   ),
   about: {
-    title: "Drawn by people who commission BMS.",
+    // Also the page <title> and meta description. Keep both different from the
+    // "Why IBMS3D" section below the hero and from the home page.
+    title: "3D building graphics, made inside a BMS integrator.",
     eyebrow: "About IBMS3D",
     description:
-      "IBMS3D is the 3D studio of SD IoTecs LLP, a building automation integrator in Pune, India, and an authorised Tridium Niagara, LOYTEC and EasyIO partner.",
+      "IBMS3D is a 3D studio inside a building automation integrator, creating white-label BMS graphics for system integrators and OEMs, under NDA, ready for Niagara 4.",
     variant: "campus",
     related: ["contact", "portfolio"],
   },
