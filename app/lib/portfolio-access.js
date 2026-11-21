@@ -8,6 +8,7 @@
 
 export const ACCESS_COOKIE = "ibms3d_portfolio_access";
 export const GATE_PATH = "/portfolio-access";
+export const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // Browsers cap cookie lifetime at 400 days. proxy.js renews it on every portfolio visit.
 export const ACCESS_MAX_AGE = 60 * 60 * 24 * 400;
