@@ -1,5 +1,6 @@
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { siteUrl } from "./config/site";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -20,6 +21,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
+  // Resolves relative metadata URLs (Open Graph images, canonicals) to absolute ones.
+  metadataBase: new URL(siteUrl),
   title: "IBMS3D | 3D BMS graphics for system integrators and OEMs",
   description:
     "Send us your AutoCAD drawings. We return 3D floor plans, equipment and critical-room graphics, layered, named to your points list and ready to bind in your BMS.",
