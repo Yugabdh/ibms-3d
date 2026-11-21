@@ -9,7 +9,7 @@ export const metadata = {
 
 const destinations = [
   { label: "Portfolio", href: "/portfolio" },
-  { label: "IBMS3D Platform", href: "/#platform" },
+  { label: "IBMS3D Platform", href: "/platform" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

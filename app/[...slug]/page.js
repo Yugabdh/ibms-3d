@@ -10,7 +10,7 @@ import { destinationPages } from "../config/navigation";
 
 // These paths have their own route folders under app/ (portfolio/* is handled
 // by app/portfolio/[project], which redirects category slugs to the filter).
-const dedicatedRoutes = new Set(["portfolio", "contact"]);
+const dedicatedRoutes = new Set(["portfolio", "contact", "platform"]);
 
 // Opt out of Next's dev-only instant-navigation validation. This route calls
 // notFound() for every unknown path, and the validator reports that expected

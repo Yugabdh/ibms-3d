@@ -63,6 +63,14 @@ export const destinationPages = {
     variant: "campus",
     related: ["contact", "portfolio"],
   },
+  platform: {
+    title: "IBMS3D Platform: live 3D monitoring for critical rooms",
+    eyebrow: "Live 3D monitoring for critical rooms",
+    description:
+      "Every cooling unit, UPS, battery string, rack and sensor in one live 3D view. Built from your drawings or your own 3D model. Running on site, without internet.",
+    variant: "room",
+    related: ["portfolio", "contact"],
+  },
   contact: {
     title: "Tell us about the project. We'll come back with scope and price.",
     eyebrow: "Project enquiry",
@@ -85,7 +93,7 @@ export const navigation = [
   },
   {
     label: "Platform",
-    href: "/#platform",
+    href: "/platform",
   },
   {
     label: "About",

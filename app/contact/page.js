@@ -39,9 +39,8 @@ const bmsFrontEnds = [
   "Other or not decided",
 ];
 
-// TODO: replace [00] with the real reply time.
 const nextSteps = [
-  ["01", "We reply within [00] working hours — NDA first, if you asked for one."],
+  ["01", "We reply within 01 working days — NDA first, if you asked for one."],
   ["02", "A written scope: views, level of detail, layer naming, price and date."],
   ["03", "First floor or unit for your approval, then the full set."],
 ];

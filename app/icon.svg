@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 12 176 176" width="176" height="176" role="img" aria-labelledby="title"><title id="title">IBMS3d mark</title><g id="mark">
+<polygon points="100,20 169.28,60 100,100 30.72,60" fill="#9ED6F7"/>
+<polygon points="30.72,60 100,100 100,180 30.72,140" fill="#3A8FD6"/>
+<polygon points="100,100 169.28,60 169.28,140 100,180" fill="#1D5A9E"/>
+<g transform="matrix(34.64 20 0 40 65.36 120)" fill="#2766A6">
+<rect x="-0.64" y="-0.4" width="1.28" height="0.1"/><rect x="-0.64" y="-0.14" width="1.28" height="0.1"/>
+<rect x="-0.64" y="0.12" width="1.28" height="0.1"/><rect x="-0.64" y="0.38" width="1.28" height="0.1"/>
+</g>
+<g transform="matrix(34.64 -20 0 40 134.64 120)" fill="#34E39B">
+<circle cx="0.46" cy="-0.52" r="0.22" opacity="0.3"><animate attributeName="opacity" values="0.15;0.6;0.15" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1" dur="2.4s" repeatCount="indefinite"/></circle><circle cx="0.46" cy="-0.52" r="0.11"/>
+</g>
+<g transform="matrix(34.64 20 -34.64 20 100 60)">
+<circle r="0.88" fill="#D3EEFC"/><circle r="0.8" fill="#0D2540"/>
+<g fill="#FFFFFF"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="3.6s" repeatCount="indefinite"/><path d="M-0.08,-0.14C-0.22,-0.32,-0.18,-0.62,0.04,-0.71C0.26,-0.68,0.3,-0.42,0.1,-0.13Z"/><path transform="rotate(120)" d="M-0.08,-0.14C-0.22,-0.32,-0.18,-0.62,0.04,-0.71C0.26,-0.68,0.3,-0.42,0.1,-0.13Z"/><path transform="rotate(240)" d="M-0.08,-0.14C-0.22,-0.32,-0.18,-0.62,0.04,-0.71C0.26,-0.68,0.3,-0.42,0.1,-0.13Z"/></g>
+<circle r="0.18" fill="#9ED6F7"/><circle r="0.06" fill="#0D2540"/>
+</g>
+<path d="M30.72,60L100,100L169.28,60M100,100L100,180" fill="none" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+</g></svg>

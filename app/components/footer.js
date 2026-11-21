@@ -10,7 +10,7 @@ const footerLinks = {
     ["Full graphics package", "/#services"],
   ],
   Platform: [
-    ["IBMS3D Platform", "/#platform"],
+    ["IBMS3D Platform", "/platform"],
     ["Book a demo", "/contact"],
   ],
   Company: [

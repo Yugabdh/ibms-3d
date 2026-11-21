@@ -1,4 +1,5 @@
-import { FiArrowRight, FiArrowUpRight, FiBox } from "react-icons/fi";
+import { FiArrowRight, FiArrowUpRight } from "react-icons/fi";
+import Image from "next/image";
 import Link from "next/link";
 
 // Each CSS property is set by exactly one of base / size / variant. Tailwind
@@ -92,10 +93,7 @@ export function BrandMark({ light = false, className = "" }) {
       href="/"
       aria-label="IBMS3D home"
     >
-      <FiBox
-        aria-hidden="true"
-        className={`h-6 w-6 ${light ? "text-brand-accent" : "text-brand-primary"}`}
-      />
+      <Image src="/images/ibms3d-mark.svg" alt="" width={32} height={32} unoptimized className="h-8 w-8 shrink-0" />
       <span>IBMS3D</span>
     </Link>
   );

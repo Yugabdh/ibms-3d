@@ -2,9 +2,12 @@ import Image from "next/image";
 import { FiImage } from "react-icons/fi";
 import { variantImages } from "../config/images";
 
+// Faint teal grid lines; add a bg-size-[…] for the cell size.
+export const gridLines =
+  "bg-[linear-gradient(rgba(94,211,200,.06)_1px,transparent_1px),linear-gradient(90deg,rgba(94,211,200,.06)_1px,transparent_1px)]";
+
 // Faint teal grid behind 3D renders on dark surfaces.
-export const blueprintGrid =
-  "bg-[#0e2226] bg-[linear-gradient(rgba(94,211,200,.06)_1px,transparent_1px),linear-gradient(90deg,rgba(94,211,200,.06)_1px,transparent_1px)] bg-size-[32px_32px]";
+export const blueprintGrid = `bg-[#0e2226] ${gridLines} bg-size-[32px_32px]`;
 
 // cover fills the box over the placeholder grey; contain shows the whole
 // render (floor plans) on the light image well.

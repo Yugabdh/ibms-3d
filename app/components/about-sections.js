@@ -33,10 +33,10 @@ const audiences = [
 
 // TODO: replace the bracketed placeholders with real figures.
 const stats = [
-  ["[00]+", "Buildings modelled"],
-  ["[00]", "Integrator partners"],
-  ["[0] days", "Typical turnaround, one floor"],
-  ["[00] h", "Reply to a new brief"],
+  ["51+", "Buildings modelled"],
+  ["5+", "Integrator partners"],
+  ["01 days", "Typical turnaround, one floor"],
+  ["03 hrs", "Reply to a new brief"],
 ];
 
 export function WhoWeWorkWith({ eyebrow = "Who we work with", className = "" }) {
