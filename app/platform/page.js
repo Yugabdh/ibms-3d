@@ -379,7 +379,7 @@ export default function PlatformPage() {
               <div className="grid gap-6 sm:grid-cols-3 sm:gap-7">
                 {deployments.map(([title, text, highlight]) => (
                   <div
-                    className={`flex flex-col gap-2 pt-4 ${highlight ? "border-t-2 border-brand-accent" : "border-t border-[#36504f]"}`}
+                    className="flex flex-col gap-2 pt-4 border-t border-[#36504f]"
                     key={title}
                   >
                     <h3 className="font-heading text-lg font-medium">{title}</h3>
