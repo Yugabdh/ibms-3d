@@ -7,6 +7,8 @@ import { Button, Eyebrow, ExternalArrow } from "../components/buttons";
 import { container } from "../components/section";
 import { AboutStudio, WhoWeWorkWith } from "../components/about-sections";
 import { destinationPages } from "../config/navigation";
+import { variantImages } from "../config/images";
+import { pageMetadata } from "../lib/seo";
 
 // These paths have their own route folders under app/ (portfolio/* is handled
 // by app/portfolio/[project], which redirects category slugs to the filter).
@@ -38,8 +40,13 @@ export async function generateMetadata({ params }) {
   const page = destinationPages[slug.join("/")];
 
   return page
-    ? { title: `${page.title} | IBMS3D`, description: page.description }
-    : { title: "Page not found | IBMS3D" };
+    ? pageMetadata({
+        title: page.title,
+        description: page.description,
+        path: `/${slug.join("/")}`,
+        image: variantImages[page.variant],
+      })
+    : { title: { absolute: "Page not found | IBMS3D" } };
 }
 
 export default async function DestinationPage({ params }) {

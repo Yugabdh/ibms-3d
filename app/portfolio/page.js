@@ -9,13 +9,16 @@ import { ImageSlot } from "../components/illustrations";
 import { container } from "../components/section";
 import { destinationPages } from "../config/navigation";
 import { images } from "../config/images";
+import { pageMetadata } from "../lib/seo";
 
 const page = destinationPages.portfolio;
 
-export const metadata = {
-  title: `${page.title} | IBMS3D`,
+export const metadata = pageMetadata({
+  title: page.title,
   description: page.description,
-};
+  path: "/portfolio",
+  image: images.officeLevel4,
+});
 
 export default function PortfolioPage({ searchParams }) {
   return (

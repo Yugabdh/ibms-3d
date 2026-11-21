@@ -7,7 +7,7 @@ import { Eyebrow } from "../components/buttons";
 import { safeNextPath } from "../lib/portfolio-access";
 
 export const metadata = {
-  title: "View our work | IBMS3D",
+  title: { absolute: "View our work | IBMS3D" },
   description: "Enter your email to open the IBMS3D portfolio.",
   robots: { index: false, follow: false },
 };

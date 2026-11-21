@@ -6,13 +6,18 @@ import { Illustration, ImageSlot, gridLines } from "../components/illustrations"
 import { SectionTitle, container } from "../components/section";
 import { destinationPages } from "../config/navigation";
 import { images } from "../config/images";
+import { pageMetadata } from "../lib/seo";
 
 const page = destinationPages.platform;
 
-export const metadata = {
-  title: `${page.title} | IBMS3D`,
+// The title already names the product, so it is used without the " | IBMS3D" suffix.
+export const metadata = pageMetadata({
+  title: page.title,
+  absolute: true,
   description: page.description,
-};
+  path: "/platform",
+  image: images.batteryRoom,
+});
 
 const coverage = ["Data-centre halls", "UPS and battery rooms", "MDF/IDF rooms", "Niagara · BACnet · Modbus · MQTT"];
 

@@ -1,6 +1,7 @@
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { siteUrl } from "./config/site";
+import { jsonLdScript, pageMetadata, siteDescription, siteJsonLd, siteName, siteTitle } from "./lib/seo";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -20,12 +21,23 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+// Site-wide defaults. Each page overrides title, description, canonical and
+// social tags through pageMetadata() in app/lib/seo.js.
 export const metadata = {
   // Resolves relative metadata URLs (Open Graph images, canonicals) to absolute ones.
   metadataBase: new URL(siteUrl),
-  title: "IBMS3D | 3D BMS graphics for system integrators and OEMs",
-  description:
-    "Send us your AutoCAD drawings. We return 3D floor plans, equipment and critical-room graphics, layered, named to your points list and ready to bind in your BMS.",
+  ...pageMetadata({ title: siteTitle, absolute: true, description: siteDescription }),
+  applicationName: siteName,
+  authors: [{ name: siteName, url: siteUrl }],
+  creator: siteName,
+  publisher: siteName,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+  },
+  // Stop iOS turning numbers such as "441 live points" into phone links.
+  formatDetection: { telephone: false, address: false, email: false },
 };
 
 export const viewport = {
@@ -37,11 +49,14 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="en"
+      lang="en-GB"
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full scroll-smooth antialiased`}
       data-scroll-behavior="smooth"
     >
-      <body className="min-h-full flex flex-col font-body">{children}</body>
+      <body className="min-h-full flex flex-col font-body">
+        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(siteJsonLd)} />
+        {children}
+      </body>
     </html>
   );
 }

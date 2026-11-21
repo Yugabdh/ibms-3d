@@ -3,15 +3,19 @@ import Footer from "../components/footer";
 import { Button, Eyebrow } from "../components/buttons";
 import { CheckList, container } from "../components/section";
 import { destinationPages } from "../config/navigation";
+import { variantImages } from "../config/images";
+import { pageMetadata } from "../lib/seo";
 
 const page = destinationPages.contact;
 
 const FORM_ACTION = "https://formsubmit.co/sales@ibms3d.com";
 
-export const metadata = {
-  title: `Project enquiry | IBMS3D`,
+export const metadata = pageMetadata({
+  title: "Project enquiry",
   description: page.description,
-};
+  path: "/contact",
+  image: variantImages[page.variant],
+});
 
 const companyTypes = [
   "System integrator",

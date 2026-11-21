@@ -15,6 +15,9 @@ import { Illustration } from "./components/illustrations";
 import { AboutStudio, WhoWeWorkWith } from "./components/about-sections";
 import { SectionTitle, TagList, container } from "./components/section";
 import { images } from "./config/images";
+import { pageMetadata, siteDescription, siteTitle } from "./lib/seo";
+
+export const metadata = pageMetadata({ title: siteTitle, absolute: true, description: siteDescription, path: "/" });
 
 const heroFacts = [
   ["White-label", "Your brand, your client, under NDA"],

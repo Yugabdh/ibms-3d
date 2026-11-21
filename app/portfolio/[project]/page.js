@@ -9,6 +9,7 @@ import { Button, Eyebrow } from "../../components/buttons";
 import { Illustration, ImageSlot } from "../../components/illustrations";
 import { TagList, container } from "../../components/section";
 import { categoryLabels, filterHref, projects, workCategories } from "../../config/work";
+import { pageMetadata } from "../../lib/seo";
 
 export function generateStaticParams() {
   return projects.map(({ slug }) => ({ project: slug }));
@@ -19,8 +20,13 @@ export async function generateMetadata({ params }) {
   const project = projects.find((item) => item.slug === slug);
 
   return project
-    ? { title: `${project.title} | IBMS3D`, description: project.description }
-    : { title: "Project not found | IBMS3D" };
+    ? pageMetadata({
+        title: project.title,
+        description: project.description,
+        path: `/portfolio/${project.slug}`,
+        image: project.image,
+      })
+    : { title: { absolute: "Project not found | IBMS3D" } };
 }
 
 export default async function ProjectPage({ params }) {

@@ -4,7 +4,7 @@ import { Button, Eyebrow } from "./components/buttons";
 import { container } from "./components/section";
 
 export const metadata = {
-  title: "Page not found | IBMS3D",
+  title: { absolute: "Page not found | IBMS3D" },
 };
 
 const destinations = [
