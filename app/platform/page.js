@@ -1,8 +1,8 @@
-import { FiArrowDown, FiWind } from "react-icons/fi";
+import { FiArrowRight, FiLock, FiWind } from "react-icons/fi";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import { Button, Eyebrow } from "../components/buttons";
-import { Illustration, ImageSlot, gridLines } from "../components/illustrations";
+import { Illustration, gridLines } from "../components/illustrations";
 import { SectionTitle, container } from "../components/section";
 import { destinationPages } from "../config/navigation";
 import { images } from "../config/images";
@@ -35,6 +35,9 @@ const alarm = {
   y: 50,
 };
 
+// Where battery string B3 sits in the feature 01 screenshot, as % of the image.
+const findItPin = { x: 50, y: 50 };
+
 // Where the feature callout's line turns upward, as a % of the image width.
 const calloutBend = 62;
 
@@ -48,12 +51,17 @@ const modelSteps = [
 ];
 const activeModelStep = 2;
 
-// Importer output for the sample server hall (feature 03).
-const drawingImport = {
-  inputs: ["AHD_AS_BUILT_3F.dxf", "register.xlsx"],
-  output: "ahd-3f.twin.json",
-  summary: "98 items · 441 live points · 1 report",
-};
+// Before / after for the sample server hall (feature 03).
+const drawingViews = [
+  { label: "What you send", value: "2D drawing", image: images.platformDrawingSent },
+  { label: "What you get", value: "live 3D twin", image: images.platformDrawingTwin, dark: true },
+];
+
+const drawingSteps = [
+  ["Send what you have", "DWG, DXF or PDF drawings, plus your equipment list if you keep one."],
+  ["We model and tag it", "Walls, doors and every unit at the drawing’s real dimensions, matched to your BMS tags."],
+  ["You check it, then go live", "Walk through the model first. Any tag that doesn’t match your site is listed for you."],
+];
 
 // Measured for the AHD server hall twin (feature 04). The highlighted stat is shown in accent.
 const edgeStats = [
@@ -82,41 +90,39 @@ const statuses = [
 
 const smallCaps = "font-mono text-xs uppercase tracking-[.1em]";
 
-// Room packs ("Where it works"). image: null shows a placeholder until the
-// render is uploaded; roadmap marks packs that are not available yet.
+// Room packs ("Where it works"). roadmap marks packs that are not available yet.
 const industries = [
   {
     title: "Data-centre halls",
     text: "Cooling units, PDUs, rack inlets, leaks and doors across the whole hall.",
     tags: ["PAC", "PDU", "RACK", "THS", "LEAK", "DOOR"],
-    image: null,
-    placeholder: "Row of cooling units in a data hall with live temperatures",
+    image: images.platformDataHall,
   },
   {
     title: "UPS and battery rooms",
     text: "String temperature, hydrogen, exhaust fans and UPS mode, in one view.",
     tags: ["UPS", "BATT", "H2", "EXF"],
-    image: images.batteryRoom1,
+    image: images.platformBatteryRoom,
   },
   {
     title: "MDF/IDF rooms",
     text: "Many small rooms: temperature, UPS, doors and leaks in each one.",
     tags: ["RACK", "THS", "UPS", "DOOR", "LEAK"],
-    image: images.upsRoom,
+    image: images.platformMdfRoom,
   },
   {
     title: "Cleanrooms",
     text: "Pressure cascades, particle counts and validated records.",
     tags: ["ΔP", "PARTICLES", "AHU", "FFU"],
-    roadmap: true,
+    image: images.cleanRoom,
   },
 ];
 
-function AlarmPin() {
+function AlarmPin({ x = alarm.x, y = alarm.y }) {
   return (
     <span
       aria-hidden="true"
-      style={{ left: `${alarm.x}%`, top: `${alarm.y}%` }}
+      style={{ left: `${x}%`, top: `${y}%` }}
       className="absolute flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-[#ff6b5b]"
     >
       <span className="h-2 w-2 rounded-full bg-[#ff6b5b]" />
@@ -213,20 +219,20 @@ export default function PlatformPage() {
 
             <div className="relative">
               <Illustration
-                image={{ ...images.batteryRoom, alt: `${alarm.name} shown in red at ${alarm.value} among normal battery strings in the 3D view` }}
+                image={images.platformFindIt}
                 aspect="aspect-[2.2]"
                 sizes="(max-width: 1380px) 100vw, 1380px"
                 className="rounded-2xl border border-line"
               />
-              <AlarmPin />
+              <AlarmPin {...findItPin} />
               <span
                 aria-hidden="true"
-                style={{ left: `calc(${alarm.x}% + 0.75rem)`, width: `calc(${calloutBend - alarm.x}% - 0.75rem)`, top: `${alarm.y}%` }}
+                style={{ left: `calc(${findItPin.x}% + 0.75rem)`, width: `calc(${calloutBend - findItPin.x}% - 0.75rem)`, top: `${findItPin.y}%` }}
                 className="absolute hidden border-t-2 border-[#ff6b5b] lg:block"
               />
               <span
                 aria-hidden="true"
-                style={{ left: `${calloutBend}%`, right: "19.5rem", bottom: `calc(${100 - alarm.y}% - 2px)` }}
+                style={{ left: `${calloutBend}%`, right: "19.5rem", bottom: `calc(${100 - findItPin.y}% - 2px)` }}
                 className="absolute top-22 hidden border-l-2 border-t-2 border-[#ff6b5b] lg:block"
               />
 
@@ -278,12 +284,10 @@ export default function PlatformPage() {
             </div>
 
             <div className="flex flex-col gap-4">
-              {/* TODO: add the Model Studio screenshot (battery room model with equipment matches) to app/config/images.js and show it here. */}
-              <ImageSlot
-                dark
-                label="Model Studio matching objects in a SketchUp battery room model to equipment types"
-                note="Screenshot coming soon"
-                className="aspect-[1.78]"
+              <Illustration
+                image={images.platformModelStudio}
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                className="rounded-xl border border-line-dark"
               />
               <p className="flex items-center gap-3 font-mono text-sm text-mist">
                 <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-[#3ddc97]" />
@@ -293,43 +297,75 @@ export default function PlatformPage() {
           </div>
         </section>
 
-        {/* 03 / From the drawing */}
+        {/* 03 / From your drawings */}
         <section className="bg-surface">
           <div className={`${container} flex flex-col gap-10 py-20 sm:py-24`}>
             <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-5">
               <SectionTitle
-                eyebrow="03 / From the drawing"
-                title="No 3D model? Your as-built DXF is enough."
+                eyebrow="03 / From your drawings"
+                title="No 3D model? We’ve got you covered."
                 className="max-w-170"
               />
               <p className="max-w-135 text-base leading-relaxed text-ink-soft sm:text-lg">
-                Add the equipment register you already keep in Excel. The importer builds the room, places every tagged unit
-                and lists every tag that does not match.
+                Send us your 2D CAD drawings. We build an accurate 3D model of your room, place every piece of equipment and
+                tag it for live data. You don’t model a thing.
               </p>
             </div>
 
-            <div className="relative">
-              {/* TODO: swap in the server hall built from the as-built DXF once it is in app/config/images.js. */}
-              <Illustration
-                image={images.floorPlan}
-                aspect="aspect-[2.3]"
-                sizes="(max-width: 1380px) 100vw, 1380px"
-                className="rounded-2xl border border-line"
-              />
-              <div className="mt-3 flex flex-col gap-2.5 rounded-2xl border border-line-dark bg-brand-dark/92 px-5 py-4.5 font-mono text-sm text-[#f5f8f7] sm:max-w-101 lg:absolute lg:left-6 lg:top-6 lg:mt-0">
-                <div className="flex flex-wrap items-center gap-2.5">
-                  {drawingImport.inputs.map((file, index) => (
-                    <span className="contents" key={file}>
-                      {index > 0 && <span className="text-mist">+</span>}
-                      <span className="rounded-md border border-[#36504f] px-2 py-1">{file}</span>
+            <div className="flex flex-col gap-4">
+              <div className="relative grid gap-4 md:grid-cols-2 md:gap-14">
+                {drawingViews.map(({ label, value, image, dark }) => (
+                  <figure className="relative" key={label}>
+                    <Illustration
+                      image={image}
+                      aspect="aspect-[1.83]"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className={`rounded-2xl ${dark ? "" : "border border-line"}`}
+                    />
+                    <figcaption
+                      className={`absolute left-4 top-4 flex items-center gap-2.5 rounded-full border px-3.5 py-2 text-sm ${
+                        dark ? "border-[#31414c] bg-brand-dark/86 text-mist-light" : "border-line bg-white text-ink-soft"
+                      }`}
+                    >
+                      {label} <span className={`font-semibold ${dark ? "text-white" : "text-brand-dark"}`}>{value}</span>
+                    </figcaption>
+                  </figure>
+                ))}
+                <span
+                  aria-hidden="true"
+                  className="absolute left-1/2 top-1/2 hidden h-17 w-17 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-6 border-surface bg-brand-primary text-white md:flex"
+                >
+                  <FiArrowRight className="h-6 w-6" />
+                </span>
+              </div>
+              <p className="text-sm text-ink-soft">
+                Above: the as-built DXF of a third-floor server hall, and the twin built from it. 98 items, 441 live points.
+              </p>
+            </div>
+
+            <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_26.875rem] lg:gap-8">
+              <ol className="grid gap-6 sm:grid-cols-3 sm:gap-9">
+                {drawingSteps.map(([title, text], index) => (
+                  <li className="flex flex-col gap-2.5 border-t border-field pt-4.5" key={title}>
+                    <span className="flex h-8.5 w-8.5 items-center justify-center rounded-full border-[1.5px] border-brand-primary font-heading text-base font-semibold text-brand-primary">
+                      {index + 1}
                     </span>
-                  ))}
-                </div>
-                <div className="flex items-center gap-2.5 text-brand-accent">
-                  <FiArrowDown aria-hidden="true" className="h-4 w-4 shrink-0" />
-                  {drawingImport.output}
-                </div>
-                <div className="text-mist-light">{drawingImport.summary}</div>
+                    <h3 className="font-heading text-xl font-semibold">{title}</h3>
+                    <p className="text-base leading-normal text-ink-soft">{text}</p>
+                  </li>
+                ))}
+              </ol>
+
+              <div className="flex flex-col gap-2.5 rounded-2xl bg-brand-dark px-7 py-6.5 text-white">
+                <h3 className="font-heading text-[22px] font-semibold leading-tight">Not sure your drawings are good enough?</h3>
+                <p className="text-base leading-normal text-mist-light">Send them anyway. We’ll tell you exactly what’s missing.</p>
+                <Button href="/contact" size="lg" className="mt-2 self-start">
+                  Send my drawings
+                </Button>
+                <p className="flex items-center gap-2 text-[13.5px] text-mist">
+                  <FiLock aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
+                  Your drawings stay confidential. NDA on request.
+                </p>
               </div>
             </div>
           </div>
@@ -369,12 +405,10 @@ export default function PlatformPage() {
             </div>
 
             <div className="flex flex-col gap-8">
-              {/* TODO: add the capacity planner screenshot to app/config/images.js and show it here. */}
-              <ImageSlot
-                dark
-                label="IBMS3D capacity planner showing the hardware needed for an edge deployment"
-                note="Screenshot coming soon"
-                className="aspect-[1.78]"
+              <Illustration
+                image={images.platformCapacityPlanner}
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                className="rounded-xl border border-line-dark"
               />
               <div className="grid gap-6 sm:grid-cols-3 sm:gap-7">
                 {deployments.map(([title, text, highlight]) => (
@@ -463,7 +497,7 @@ export default function PlatformPage() {
             </div>
 
             <div className="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-              {industries.map(({ title, text, tags, image, placeholder, roadmap }) => (
+              {industries.map(({ title, text, tags, image, roadmap }) => (
                 <div className="flex flex-col gap-4" key={title}>
                   {roadmap ? (
                     <div className="relative flex aspect-[1.13] items-center justify-center rounded-2xl border border-dashed border-[#36504f]">
@@ -472,11 +506,13 @@ export default function PlatformPage() {
                         ON THE ROADMAP
                       </span>
                     </div>
-                  ) : image ? (
-                    <Illustration image={image} aspect="aspect-[1.13]" className="rounded-2xl border border-line-dark" />
                   ) : (
-                    // TODO: add the data hall render to app/config/images.js and set `image` above.
-                    <ImageSlot dark label={placeholder} note="Render coming soon" className="aspect-[1.13]" />
+                    <Illustration
+                      image={image}
+                      aspect="aspect-[1.13]"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="rounded-2xl border border-line-dark"
+                    />
                   )}
                   <h3 className="font-heading text-xl font-medium">{title}</h3>
                   <p className="text-sm leading-relaxed text-mist-light">{text}</p>

@@ -212,6 +212,62 @@ export const images = {
     width: 1666,
     height: 898,
   },
+  // Platform page feature screenshots (01–04).
+  platformFindIt: {
+    src: "v1795276139/feature_1.png",
+    alt: "IBMS3D Platform 3D view of a UPS and battery room with battery string B3 in red at 38.0 °C among normal strings",
+    width: 2820,
+    height: 1284,
+  },
+  platformModelStudio: {
+    src: "v1795276140/feature_2.png",
+    alt: "Model Studio matching objects in a battery room model to equipment types, with 31 matches found in object names",
+    width: 2084,
+    height: 1174,
+  },
+  platformDrawingSent: {
+    src: "v1795277691/feature_3_what_u_send.png",
+    alt: "2D as-built CAD drawing of a server hall, with cooling units, PDUs and doors marked",
+    width: 1348,
+    height: 764,
+  },
+  platformDrawingTwin: {
+    src: "v1795277692/feature_3_what_you_get.png",
+    alt: "The same server hall as a live 3D twin, with every unit placed and cooling unit PAC-22 in alarm",
+    width: 2820,
+    height: 1220,
+  },
+  platformCapacityPlanner: {
+    src: "v1795276139/feature_4.png",
+    alt: "IBMS3D capacity planner showing a 2 vCPU, 2 GB edge server for 441 live points and the graphics budget per operator screen",
+    width: 2004,
+    height: 1128,
+  },
+  // Platform page "Where it works" room-pack cards.
+  platformDataHall: {
+    src: "v1795276139/service_card_1.png",
+    alt: "Row of cooling units and PDUs in a data hall with live temperature and power labels",
+    width: 672,
+    height: 604,
+  },
+  platformBatteryRoom: {
+    src: "v1795276139/service_card_2.png",
+    alt: "UPS and battery room with live labels for UPS, battery strings and exhaust fan, and battery string B3 in alarm",
+    width: 672,
+    height: 604,
+  },
+  platformMdfRoom: {
+    src: "v1795276139/service_card_3.png",
+    alt: "MDF room and adjacent UPS room with live labels for a leak sensor, door, cooling unit and UPS",
+    width: 672,
+    height: 604,
+  },
+  cleanRoom: {
+    src: "v1795276139/service_card_4.png",
+    alt: "Clean room with live labels for temperature, humidity, and air quality sensors",
+    width: 672,
+    height: 604,
+  },
 };
 
 // Default image for each <Illustration variant="…" />.
