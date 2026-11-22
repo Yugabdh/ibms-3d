@@ -6,7 +6,7 @@ import { grantPortfolioAccess } from "../portfolio-access/actions";
 import { EMAIL_PATTERN } from "../lib/portfolio-access";
 
 // Sent from the browser: FormSubmit (behind Cloudflare) rejects server-side requests with 403.
-const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/yugabdhppashte@gmail.com";
+const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/sales@ibms3d.com";
 const GENERIC_ERROR = "We couldn't send that just now. Please try again in a moment.";
 
 async function requestPortfolioAccess(previousState, formData) {
